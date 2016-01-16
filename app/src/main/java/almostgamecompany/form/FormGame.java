@@ -267,7 +267,6 @@ public class FormGame extends Activity {
         timerRepaint.schedules(new TimerTask() {
             @Override
             public void run() {
-
                 runOnUiThread(new Runnable() {
 
                     @Override

@@ -135,8 +135,9 @@ public class Field {
     }
 
     public void timerMainEditTime(int time) {
+
         timerMain.setDelay(timerMain.getDelay() - time);
-        StaticField.speed = Integer.parseInt(String.valueOf(timerMain.getDelay()));
+        StaticField.setSpeed(Integer.parseInt(String.valueOf(timerMain.getDelay())));
         long timerMainDelay = timerMain.getDelay();
         timerMain.cancel();
         timerMain = new MyTimer(timerMainDelay);
@@ -146,7 +147,7 @@ public class Field {
     public void timerMainEditTime(int time, long delay) {
         if (!StaticField.combo) {
             timerMain.setDelay(timerMain.getDelay() - time);
-            StaticField.speed = Integer.parseInt(String.valueOf(timerMain.getDelay()));
+            StaticField.setSpeed(Integer.parseInt(String.valueOf(timerMain.getDelay())));
             long timerMainDelay = timerMain.getDelay();
             timerMain.cancel();
             timerMain = new MyTimer(timerMainDelay);
@@ -226,6 +227,7 @@ public class Field {
     public void restart() {
         Points.restart();
         fieldClear();
+        StaticField.setSpeed(StaticField.StartSpeed);
         timerMain.setDelay(StaticField.StartSpeed);
     }
 

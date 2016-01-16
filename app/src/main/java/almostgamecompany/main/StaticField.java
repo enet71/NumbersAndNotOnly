@@ -1,8 +1,6 @@
 package almostgamecompany.main;
 
 
-
-
 import almostgamecompany.field.Field;
 import almostgamecompany.form.Menu;
 import almostgamecompany.numbersandnotonly.R;
@@ -22,5 +20,15 @@ public class StaticField {
 
     public static int getSpeedInfo() {
         return 100 - (speed * 100) / StartSpeed;
+    }
+
+    public static void setSpeed(int speed) {
+        if (speed < 0) {
+            StaticField.speed = 0;
+        } else if(speed > StaticField.StartSpeed){
+            StaticField.speed = StaticField.StartSpeed;
+        }else {
+            StaticField.speed = speed;
+        }
     }
 }
