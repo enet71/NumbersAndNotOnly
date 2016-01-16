@@ -111,7 +111,12 @@ public class Menu extends Dialog implements OnClickListener {
         restartB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (StaticField.start) {
+                    StaticField.start = false;
+                }
                 StaticField.field.restart();
+                StaticField.field.pause();
+                dialog.dismiss();
             }
         });
 

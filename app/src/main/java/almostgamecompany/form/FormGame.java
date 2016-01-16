@@ -276,7 +276,15 @@ public class FormGame extends Activity {
                         labelX.setText(Points.getX() + " ");
 
                         score.setText(String.valueOf(Points.getPoints()));
-                        bestScore.setText("\n" +"Best Score: " + StaticField.record + "\n" + "\n" + "In This Game: " + String.valueOf(Points.getMaxPoints())+1 + "\n"+ "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo())+"%"+ "\n");
+                        if (Points.getPoints()>=Points.getMaxPoints()){
+                            bestScore.setText("\n" +"Best Score: " + StaticField.record + "\n" + "\n" + "In This Game: " + "BEST!" + "\n"+ "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo()+1)+"%"+ "\n");
+                            if (Points.getPoints()>=StaticField.record){
+                                bestScore.setText("\n" +"Best Score: " + "BEST!" + "\n" + "\n" + "In This Game: " + "BEST!" + "\n"+ "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo()+1)+"%"+ "\n");
+                            }
+                        }else
+                        {
+                            bestScore.setText("\n" + "Best Score: " + StaticField.record + "\n" + "\n" + "In This Game: " + String.valueOf(Points.getMaxPoints()) + "\n" + "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo() + 1) + "%" + "\n");
+                        }
                         for (int i = 0; i < size; i++) {
                             for (int j = 0; j < size; j++) {
                                 if (field.getArraySquare()[i][j] != null) {
