@@ -146,11 +146,7 @@ public class Menu extends Dialog implements OnClickListener {
         LinearLayout.LayoutParams contParam = (LinearLayout.LayoutParams) contB.getLayoutParams();
         contParam.height = (int) FormGame.getHeightBottmPanel();
         contParam.weight = FormGame.getWidth();
-        if (StaticField.start) {
-            contB.setBackgroundResource(R.drawable.start);
-        } else {
-            contB.setBackgroundResource(R.drawable.cont);
-        }
+
         contB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,6 +192,15 @@ public class Menu extends Dialog implements OnClickListener {
         }
 
         return params;
+    }
+
+
+    public void set_cont_button(){
+        if (StaticField.start) {
+            contB.setBackgroundResource(R.drawable.start);
+        } else {
+            contB.setBackgroundResource(R.drawable.cont);
+        }
     }
 
 }

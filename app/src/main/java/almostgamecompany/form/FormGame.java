@@ -102,6 +102,7 @@ public class FormGame extends Activity {
             @Override
             public void run() {
                 StaticField.menu.show();
+                StaticField.menu.set_cont_button();
             }
         };
         mainHandler.post(myRunnable);
