@@ -217,7 +217,13 @@ public class FormGame extends Activity {
             marginSizeW = 5;
             panelCenter.setBackgroundResource(R.drawable.grid2);
         }
-
+        if(width==720&&height<=1210&&height>=1180){
+            btnW=132;
+            btnH=141;
+            marginSizeW=10;
+            marginSizeH=10;
+            panelCenter.setBackgroundResource(R.drawable.grid3);
+        }
     }
 
     private void buttonListener(final int row, final int col) {
