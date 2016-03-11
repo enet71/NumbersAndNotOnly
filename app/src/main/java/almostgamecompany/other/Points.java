@@ -15,7 +15,7 @@ public class Points {
         Points.points = (Points.points + points * x);
         setMaxPoints();
         if (Points.points < 0) {
-            StaticField.field.restart();
+            StaticField.fieldNormal.restart();
             StaticField.start = true;
             FormGame.openMenu();
         }

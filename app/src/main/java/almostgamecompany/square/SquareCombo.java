@@ -6,7 +6,7 @@ import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.Position;
 import almostgamecompany.other.Sound;
 
-public class SquareCombo extends Square{
+public class SquareCombo extends Square {
 
     public SquareCombo(Position pos, int time) {
         super(pos, time);

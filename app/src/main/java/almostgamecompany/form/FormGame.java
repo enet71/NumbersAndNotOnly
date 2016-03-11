@@ -25,12 +25,12 @@ import android.widget.TextView;
 
 import java.util.TimerTask;
 
-import almostgamecompany.field.Field;
+import almostgamecompany.field.classic.ClassicField;
 import almostgamecompany.main.Save;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.Points;
-import almostgamecompany.square.MyTimer;
+import almostgamecompany.other.MyTimer;
 
 public class FormGame extends Activity {
 
@@ -40,7 +40,7 @@ public class FormGame extends Activity {
     private GridLayout panelCenter;
 
     private int size = StaticField.sizeField;
-    private Field field = StaticField.field;
+    private ClassicField field = StaticField.fieldNormal;
     private Button[][] buttonMass = new Button[size][size];
 
     private Button buttonMenu;
@@ -96,7 +96,7 @@ public class FormGame extends Activity {
     }
 
     public static void openMenu() {
-        StaticField.field.pause();
+        StaticField.fieldNormal.pause();
         Handler mainHandler = new Handler(MyApplication.getAppContext().getMainLooper());
         Runnable myRunnable = new Runnable() {
             @Override
@@ -230,8 +230,8 @@ public class FormGame extends Activity {
         buttonMass[row][col].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (field.getArraySquare()[row][col] != null) {
-                    field.removeSquare(row, col);
+                if (field.getArray()[row][col] != null) {
+                    field.press(row, col);
                 }
                 return false;
             }
@@ -292,10 +292,10 @@ public class FormGame extends Activity {
                         }
                         for (int i = 0; i < size; i++) {
                             for (int j = 0; j < size; j++) {
-                                if (field.getArraySquare()[i][j] != null) {
-                                    buttonMass[i][j].setBackgroundResource(field.getSquareIcon(i, j));
+                                if (field.getArray()[i][j] != null) {
+                                    buttonMass[i][j].setBackgroundResource(field.getArray()[i][j].getIcon());
                                     buttonMass[i][j].setVisibility(View.VISIBLE);
-                                    buttonMass[i][j].setText(String.valueOf(field.getSquareString(i, j)));
+                                    buttonMass[i][j].setText(field.getArray()[i][j].getString());
                                 } else {
                                     buttonMass[i][j].setVisibility(View.INVISIBLE);
                                 }

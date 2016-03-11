@@ -1,4 +1,4 @@
-package almostgamecompany.square;
+package almostgamecompany.other;
 
 import java.util.Timer;
 import java.util.TimerTask;

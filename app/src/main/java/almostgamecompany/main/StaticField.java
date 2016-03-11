@@ -1,7 +1,7 @@
 package almostgamecompany.main;
 
 
-import almostgamecompany.field.Field;
+import almostgamecompany.field.classic.ClassicField;
 import almostgamecompany.form.Menu;
 import almostgamecompany.numbersandnotonly.R;
 
@@ -13,7 +13,7 @@ public class StaticField {
     public static final int StartSpeed = 1500;
     public static int record = 0;
     public static int sizeField = 5;
-    public static Field field = new Field(sizeField);
+    public static ClassicField fieldNormal = new ClassicField(sizeField);
     public static Menu menu;
     public static boolean enableSound = true;
     public static int soundImg = R.drawable.sound;

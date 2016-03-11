@@ -25,7 +25,7 @@ public class SquareNormal extends Square {
     public void press() {
         Date currTime = new Date();
         long delay = StaticField.speed - (currTime.getTime() - date.getTime());
-        StaticField.field.timerMainEditTime(10, delay);
+        StaticField.fieldNormal.timerMainEditTime(10, delay);
         Sound.playSound(R.raw.normal);
         Points.addPoints(getPoint());
     }

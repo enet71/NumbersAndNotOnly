@@ -15,7 +15,7 @@ public class SquareLose extends Square {
     @Override
     public void press() {
         Sound.playSound(R.raw.lose);
-        StaticField.field.restart();
+        StaticField.fieldNormal.restart();
         StaticField.start = true;
         FormGame.openMenu();
     }

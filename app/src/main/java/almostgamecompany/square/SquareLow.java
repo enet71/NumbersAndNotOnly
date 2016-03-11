@@ -18,7 +18,7 @@ public class SquareLow extends Square {
     @Override
     public void press() {
         Sound.playSound(R.raw.slow);
-        StaticField.field.timerMainEditTime(-200);
+        StaticField.fieldNormal.timerMainEditTime(-200);
     }
 
     @Override

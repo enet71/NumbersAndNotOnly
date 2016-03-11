@@ -49,7 +49,7 @@ public class Menu extends Dialog implements OnClickListener {
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                StaticField.field.pause();
+                StaticField.fieldNormal.pause();
             }
         });
         Size();
@@ -114,8 +114,8 @@ public class Menu extends Dialog implements OnClickListener {
                 if (StaticField.start) {
                     StaticField.start = false;
                 }
-                StaticField.field.restart();
-                StaticField.field.pause();
+                StaticField.fieldNormal.restart();
+                StaticField.fieldNormal.pause();
                 dialog.dismiss();
             }
         });
@@ -158,7 +158,7 @@ public class Menu extends Dialog implements OnClickListener {
                 if (StaticField.start) {
                     StaticField.start = false;
                 }
-                StaticField.field.pause();
+                StaticField.fieldNormal.pause();
                 dialog.dismiss();
             }
         });
