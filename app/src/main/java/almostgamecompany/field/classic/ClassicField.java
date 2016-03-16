@@ -1,24 +1,25 @@
 package almostgamecompany.field.classic;
 
 import android.os.Handler;
-import android.util.Log;
 
 import java.util.Date;
 import java.util.TimerTask;
 
+import almostgamecompany.field.AbstractField;
 import almostgamecompany.form.MyApplication;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.other.MyTimer;
 import almostgamecompany.other.Points;
 import almostgamecompany.other.Position;
-import almostgamecompany.square.Square;
-import almostgamecompany.square.SquareCombo;
-import almostgamecompany.square.SquareLose;
-import almostgamecompany.square.SquareLow;
-import almostgamecompany.square.SquareNormal;
-import almostgamecompany.square.SquareX;
+import almostgamecompany.square.Squarable;
+import almostgamecompany.square.classic.ClassicAbstractSquare;
+import almostgamecompany.square.classic.SquareCombo;
+import almostgamecompany.square.classic.SquareLose;
+import almostgamecompany.square.classic.SquareLow;
+import almostgamecompany.square.classic.SquareNormal;
+import almostgamecompany.square.classic.SquareX;
 
-public class ClassicField extends AbstractClassicField {
+public class ClassicField extends AbstractField implements Classic{
     private MyTimer timerSecondary;
     private MyTimer timerRemove;
     private MyTimer timerMain;
@@ -57,10 +58,10 @@ public class ClassicField extends AbstractClassicField {
             timerRemove.cancel();
             StaticField.pause = true;
 
-            for (Square[] anArraySquare : arraySquare) {
-                for (Square anAnArraySquare : anArraySquare) {
+            for (Squarable[] anArraySquare : arraySquare) {
+                for (Squarable anAnArraySquare : anArraySquare) {
                     if (anAnArraySquare != null) {
-                        anAnArraySquare.pause();
+                        ((ClassicAbstractSquare)anAnArraySquare).pause();
                     }
                 }
             }
@@ -78,10 +79,10 @@ public class ClassicField extends AbstractClassicField {
             timerRemove.schedules(removeTask());
             StaticField.pause = false;
 
-            for (Square[] anArraySquare : arraySquare) {
-                for (Square anAnArraySquare : anArraySquare) {
+            for (Squarable[] anArraySquare : arraySquare) {
+                for (Squarable anAnArraySquare : anArraySquare) {
                     if (anAnArraySquare != null && datePause != null) {
-                        anAnArraySquare.unPause(datePause);
+                        ((ClassicAbstractSquare)anAnArraySquare).unPause(datePause);
                     }
                 }
             }
@@ -141,11 +142,6 @@ public class ClassicField extends AbstractClassicField {
             position = getRandomPosition();
             arraySquare[position.getRow()][position.getColumn()] = new SquareCombo(position, 1000);
         }
-    }
-
-    @Override
-    public Square[][] getArray() {
-        return arraySquare;
     }
 
     private void createComboField() {
@@ -230,6 +226,7 @@ public class ClassicField extends AbstractClassicField {
                 } else if (5 > 10) {
 
                 } else {
+
                     createLoseSquare();
                     createSlowSquare();
                     createXSquare();
@@ -237,5 +234,23 @@ public class ClassicField extends AbstractClassicField {
                 }
             }
         };
+    }
+
+    /**
+     * Проходит по всему полю. Если квадрат не пустой то проверяет его время.
+     * Если время меньше 0 то удаляет его из поля.
+     */
+    public void removeSquare() {
+        for (int i = 0; i < arraySquare.length; i++) {
+            for (int j = 0; j < arraySquare[i].length; j++) {
+                if (arraySquare[i][j] != null) {
+                    if (((ClassicAbstractSquare)arraySquare[i][j]).getTime() <= 0) {
+                        arraySquare[i][j].remove();
+                        arraySquare[i][j] = null;
+                    }
+                }
+
+            }
+        }
     }
 }

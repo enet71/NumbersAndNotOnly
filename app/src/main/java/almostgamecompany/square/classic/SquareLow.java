@@ -1,12 +1,13 @@
-package almostgamecompany.square;
+package almostgamecompany.square.classic;
 
 
+import almostgamecompany.field.classic.ClassicField;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.Position;
 import almostgamecompany.other.Sound;
 
-public class SquareLow extends Square {
+public class SquareLow extends ClassicAbstractSquare {
     public SquareLow(Position pos, int time) {
         super(pos, time);
     }
@@ -18,7 +19,8 @@ public class SquareLow extends Square {
     @Override
     public void press() {
         Sound.playSound(R.raw.slow);
-        StaticField.fieldNormal.timerMainEditTime(-200);
+        ((ClassicField) StaticField.field).timerMainEditTime(-200);
+        //StaticField.field.timerMainEditTime(-200);
     }
 
     @Override
@@ -27,7 +29,7 @@ public class SquareLow extends Square {
     }
 
     @Override
-    public void icon() {
-        icon = R.drawable.squareslow;
+    public int getIcon() {
+        return R.drawable.squareslow;
     }
 }

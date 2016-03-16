@@ -1,15 +1,16 @@
-package almostgamecompany.square;
+package almostgamecompany.square.classic;
 
 
 import java.util.Date;
 
+import almostgamecompany.field.classic.ClassicField;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.Points;
 import almostgamecompany.other.Position;
 import almostgamecompany.other.Sound;
 
-public class SquareNormal extends Square {
+public class SquareNormal extends ClassicAbstractSquare {
     public SquareNormal(Position pos, int time) {
         super(pos, time);
     }
@@ -18,14 +19,10 @@ public class SquareNormal extends Square {
         super(pos, time, minPoint, maxPoint);
     }
 
-    public String getString() {
-        return String.valueOf(getPoint());
-    }
-
     public void press() {
         Date currTime = new Date();
         long delay = StaticField.speed - (currTime.getTime() - date.getTime());
-        StaticField.fieldNormal.timerMainEditTime(10, delay);
+        ((ClassicField) StaticField.field).timerMainEditTime(10, delay);
         Sound.playSound(R.raw.normal);
         Points.addPoints(getPoint());
     }
@@ -38,7 +35,7 @@ public class SquareNormal extends Square {
     }
 
     @Override
-    public void icon() {
-        icon = R.drawable.squarenormal;
+    public int getIcon() {
+        return R.drawable.squarenormal;
     }
 }

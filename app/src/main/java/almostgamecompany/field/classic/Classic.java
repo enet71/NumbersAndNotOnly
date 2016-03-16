@@ -1,11 +1,10 @@
 package almostgamecompany.field.classic;
 
 import almostgamecompany.field.Field;
-import almostgamecompany.square.Square;
+import almostgamecompany.square.Squarable;
+import almostgamecompany.square.classic.ClassicAbstractSquare;
 
 public interface Classic extends Field {
-
-    void press(int row, int col);
 
     void createNormalSquare();
 
@@ -19,5 +18,4 @@ public interface Classic extends Field {
 
     void createComboSquare();
 
-    Square[][] getArray();
 }

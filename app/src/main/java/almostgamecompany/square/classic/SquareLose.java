@@ -1,4 +1,4 @@
-package almostgamecompany.square;
+package almostgamecompany.square.classic;
 
 import almostgamecompany.form.FormGame;
 import almostgamecompany.main.StaticField;
@@ -6,7 +6,7 @@ import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.Position;
 import almostgamecompany.other.Sound;
 
-public class SquareLose extends Square {
+public class SquareLose extends ClassicAbstractSquare {
 
     public SquareLose(Position pos, int time) {
         super(pos, time);
@@ -15,7 +15,7 @@ public class SquareLose extends Square {
     @Override
     public void press() {
         Sound.playSound(R.raw.lose);
-        StaticField.fieldNormal.restart();
+        StaticField.field.restart();
         StaticField.start = true;
         FormGame.openMenu();
     }
@@ -26,7 +26,7 @@ public class SquareLose extends Square {
     }
 
     @Override
-    public void icon() {
-        icon = R.drawable.squarelose;
+    public int getIcon() {
+        return R.drawable.squarelose;
     }
 }

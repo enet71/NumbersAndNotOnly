@@ -21,16 +21,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
-
 import java.util.TimerTask;
 
+import almostgamecompany.field.Field;
 import almostgamecompany.field.classic.ClassicField;
+import almostgamecompany.field.nonStop.NonStopField;
 import almostgamecompany.main.Save;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.numbersandnotonly.R;
-import almostgamecompany.other.Points;
 import almostgamecompany.other.MyTimer;
+import almostgamecompany.other.Points;
 
 public class FormGame extends Activity {
 
@@ -40,7 +40,7 @@ public class FormGame extends Activity {
     private GridLayout panelCenter;
 
     private int size = StaticField.sizeField;
-    private ClassicField field = StaticField.fieldNormal;
+    private Field field;
     private Button[][] buttonMass = new Button[size][size];
 
     private Button buttonMenu;
@@ -67,6 +67,16 @@ public class FormGame extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /////////////////////////////////////////////////
+        StaticField.field = new ClassicField(size);
+        //StaticField.field = new NonStopField(size);
+        field = StaticField.field;
+
+
+        ////////////////////////////////////////////////
+
+
+
         audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
 
@@ -96,7 +106,7 @@ public class FormGame extends Activity {
     }
 
     public static void openMenu() {
-        StaticField.fieldNormal.pause();
+        StaticField.field.pause();
         Handler mainHandler = new Handler(MyApplication.getAppContext().getMainLooper());
         Runnable myRunnable = new Runnable() {
             @Override
@@ -295,7 +305,7 @@ public class FormGame extends Activity {
                                 if (field.getArray()[i][j] != null) {
                                     buttonMass[i][j].setBackgroundResource(field.getArray()[i][j].getIcon());
                                     buttonMass[i][j].setVisibility(View.VISIBLE);
-                                    buttonMass[i][j].setText(field.getArray()[i][j].getString());
+                                    buttonMass[i][j].setText(field.getArray()[i][j].getPoint());
                                 } else {
                                     buttonMass[i][j].setVisibility(View.INVISIBLE);
                                 }

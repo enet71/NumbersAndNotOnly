@@ -1,4 +1,4 @@
-package almostgamecompany.square;
+package almostgamecompany.square.classic;
 
 
 import almostgamecompany.main.StaticField;
@@ -6,7 +6,7 @@ import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.Position;
 import almostgamecompany.other.Sound;
 
-public class SquareCombo extends Square {
+public class SquareCombo extends ClassicAbstractSquare {
 
     public SquareCombo(Position pos, int time) {
         super(pos, time);
@@ -23,7 +23,7 @@ public class SquareCombo extends Square {
     }
 
     @Override
-    public void icon() {
-        icon = R.drawable.squarebonus;
+    public int getIcon() {
+        return R.drawable.squarebonus;
     }
 }

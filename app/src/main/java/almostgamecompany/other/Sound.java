@@ -20,7 +20,7 @@ private static MediaPlayer mp;
                         mp = MediaPlayer.create(MyApplication.getAppContext(), sound);
                         mp.start();
                     }else{
-                        mp.stop();
+                        //mp.stop();
                         mp = MediaPlayer.create(MyApplication.getAppContext(), sound);
                         mp.start();
                     }

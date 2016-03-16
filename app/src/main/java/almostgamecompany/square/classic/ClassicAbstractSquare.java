@@ -1,4 +1,4 @@
-package almostgamecompany.square;
+package almostgamecompany.square.classic;
 
 
 import android.os.Handler;
@@ -8,22 +8,22 @@ import java.util.Date;
 import almostgamecompany.form.MyApplication;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.other.Position;
+import almostgamecompany.square.Squarable;
 
-public abstract class Square implements Squarable {
+public abstract class ClassicAbstractSquare implements Squarable {
     private int time;
     private int point;
-    protected int icon;
 
     protected Date date;
     private Handler handler;
 
-    public Square(Position pos, int time) {
+    public ClassicAbstractSquare(Position pos, int time) {
         this.time = time;
         point = (int) (Math.random() * 200) - 100;
         defaultOptions();
     }
 
-    public Square(Position pos, int time, int minPoint, int maxPoint) {
+    public ClassicAbstractSquare(Position pos, int time, int minPoint, int maxPoint) {
         this.time = time;
         point = (int) (Math.random() * (maxPoint - minPoint + 1)) + minPoint;
         defaultOptions();
@@ -32,7 +32,6 @@ public abstract class Square implements Squarable {
     private void defaultOptions() {
         date = new Date();
         startCountTime();
-        icon();
     }
 
     private void startCountTime() {
@@ -64,12 +63,8 @@ public abstract class Square implements Squarable {
         return time;
     }
 
-    public String getString() {
-        return "";
-    }
-
     public int getIcon() {
-        return icon;
+        return 0;
     }
 
     public int getPoint() {
@@ -80,5 +75,4 @@ public abstract class Square implements Squarable {
 
     public abstract void remove();
 
-    public abstract void icon();
 }
