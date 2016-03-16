@@ -7,6 +7,7 @@ import almostgamecompany.square.nonStop.SquareNormal;
 public class NonStopField extends AbstractField implements NonStop {
 
     private Position position;
+    private int value = 1;
 
     public NonStopField(int size) {
         super(size);
@@ -17,7 +18,7 @@ public class NonStopField extends AbstractField implements NonStop {
     @Override
     public void createNormalSquare() {
         position = getRandomPosition();
-        arraySquare[position.getRow()][position.getColumn()] = new SquareNormal(99);
+        arraySquare[position.getRow()][position.getColumn()] = new SquareNormal(value);
     }
 
     @Override
@@ -43,6 +44,7 @@ public class NonStopField extends AbstractField implements NonStop {
     @Override
     public void press(int row, int col) {
         super.press(row, col);
+        value++;
         createNormalSquare();
     }
 }

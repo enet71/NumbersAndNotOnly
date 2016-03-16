@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -68,8 +69,8 @@ public class FormGame extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /////////////////////////////////////////////////
-        StaticField.field = new ClassicField(size);
-        //StaticField.field = new NonStopField(size);
+        //StaticField.field = new ClassicField(size);
+        StaticField.field = new NonStopField(size);
         field = StaticField.field;
 
 
@@ -305,7 +306,7 @@ public class FormGame extends Activity {
                                 if (field.getArray()[i][j] != null) {
                                     buttonMass[i][j].setBackgroundResource(field.getArray()[i][j].getIcon());
                                     buttonMass[i][j].setVisibility(View.VISIBLE);
-                                    buttonMass[i][j].setText(field.getArray()[i][j].getPoint());
+                                    buttonMass[i][j].setText(field.getArray()[i][j].toString());
                                 } else {
                                     buttonMass[i][j].setVisibility(View.INVISIBLE);
                                 }

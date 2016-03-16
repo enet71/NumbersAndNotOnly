@@ -38,4 +38,9 @@ public class SquareNormal extends ClassicAbstractSquare {
     public int getIcon() {
         return R.drawable.squarenormal;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getPoint());
+    }
 }

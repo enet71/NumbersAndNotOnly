@@ -71,8 +71,8 @@ public abstract class ClassicAbstractSquare implements Squarable {
         return point;
     }
 
-    public abstract void press();
-
-    public abstract void remove();
-
+    @Override
+    public String toString() {
+        return "";
+    }
 }

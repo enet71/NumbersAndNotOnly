@@ -2,7 +2,6 @@ package almostgamecompany.square.nonStop;
 
 import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.Points;
-import almostgamecompany.other.Position;
 import almostgamecompany.other.Sound;
 import almostgamecompany.square.Squarable;
 
@@ -33,4 +32,8 @@ public class SquareNormal implements Squarable {
         return point;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(getPoint());
+    }
 }
