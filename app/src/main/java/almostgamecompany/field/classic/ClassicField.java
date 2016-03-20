@@ -9,7 +9,7 @@ import almostgamecompany.field.AbstractField;
 import almostgamecompany.form.MyApplication;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.other.MyTimer;
-import almostgamecompany.other.Points;
+import almostgamecompany.point.ClassicPoints;
 import almostgamecompany.other.Position;
 import almostgamecompany.square.Squarable;
 import almostgamecompany.square.classic.ClassicAbstractSquare;
@@ -36,14 +36,10 @@ public class ClassicField extends AbstractField implements Classic{
         timerRemove.schedules(removeTask());
     }
 
-    @Override
-    public void addSquare() {
-
-    }
 
     @Override
     public void restart() {
-        Points.restart();
+        ClassicPoints.restart();
         clear();
         StaticField.setSpeed(StaticField.StartSpeed);
         timerMain.setDelay(StaticField.StartSpeed);
@@ -166,7 +162,7 @@ public class ClassicField extends AbstractField implements Classic{
                         }
                     }
                 }
-                Points.addPoints(minus * (-1));
+                ClassicPoints.add(minus * (-1));
                 clear();
                 pause();
                 StaticField.combo = false;

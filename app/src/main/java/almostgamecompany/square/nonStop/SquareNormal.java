@@ -1,8 +1,9 @@
 package almostgamecompany.square.nonStop;
 
 import almostgamecompany.numbersandnotonly.R;
-import almostgamecompany.other.Points;
+import almostgamecompany.point.ClassicPoints;
 import almostgamecompany.other.Sound;
+import almostgamecompany.point.NonStopPoints;
 import almostgamecompany.square.Squarable;
 
 public class SquareNormal implements Squarable {
@@ -14,7 +15,7 @@ public class SquareNormal implements Squarable {
     @Override
     public void press() {
         Sound.playSound(R.raw.normal);
-        Points.addPoints(getPoint());
+        NonStopPoints.add(getPoint());
     }
 
     @Override

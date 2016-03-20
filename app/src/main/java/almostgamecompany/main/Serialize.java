@@ -4,13 +4,16 @@ import java.io.Serializable;
 
 public class Serialize implements Serializable {
     static final long SerialVersionUID = 100000001;
-    private int record;
+    private int recordClassic;
+    private int recordNonStop;
 
     Serialize() {
-        record = StaticField.record;
+        recordClassic = StaticField.recordClassic;
+        recordNonStop = StaticField.recordNonStop;
     }
 
     public void sendData() {
-        StaticField.record = record;
+        StaticField.recordClassic = recordClassic;
+        StaticField.recordNonStop = recordNonStop;
     }
 }

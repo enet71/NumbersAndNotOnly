@@ -13,7 +13,8 @@ public class StaticField {
     public static boolean start = true;
     public static int speed = 1500;
     public static final int StartSpeed = 1500;
-    public static int record = 0;
+    public static int recordClassic = 0;
+    public static int recordNonStop = 0;
     public static int sizeField = 5;
     //public static ClassicField field = new ClassicField(sizeField);
     public static Field field;

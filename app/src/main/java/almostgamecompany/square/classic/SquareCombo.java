@@ -12,12 +12,12 @@ public class SquareCombo extends ClassicAbstractSquare {
         super(pos, time);
     }
 
-
+    @Override
     public void press() {
         StaticField.combo = true;
         Sound.playSound(R.raw.combo);
     }
-
+    @Override
     public void remove() {
 
     }

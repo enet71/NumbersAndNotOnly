@@ -4,7 +4,6 @@ import almostgamecompany.square.Squarable;
 import almostgamecompany.square.classic.ClassicAbstractSquare;
 
 public interface Field {
-    void addSquare();
     void removeSquare();
     void clear();
     void restart();

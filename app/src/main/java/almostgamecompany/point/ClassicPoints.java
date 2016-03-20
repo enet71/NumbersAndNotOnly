@@ -1,4 +1,4 @@
-package almostgamecompany.other;
+package almostgamecompany.point;
 
 
 import almostgamecompany.form.FormGame;
@@ -6,27 +6,27 @@ import almostgamecompany.form.MyApplication;
 import almostgamecompany.main.Save;
 import almostgamecompany.main.StaticField;
 
-public class Points {
+public class ClassicPoints{
     private static int points = 0;
     private static int x = 1;
     private static int maxPoints = 0;
 
-    public static void addPoints(int points) {
-        Points.points = (Points.points + points * x);
+    public static void add(int points) {
+        ClassicPoints.points = (ClassicPoints.points + points * x);
         setMaxPoints();
-        if (Points.points < 0) {
+        if (ClassicPoints.points < 0) {
             StaticField.field.restart();
             StaticField.start = true;
             FormGame.openMenu();
         }
     }
 
-    public static int getPoints() {
-        return Points.points;
+    public static int get() {
+        return ClassicPoints.points;
     }
 
     public static void setX(int x) {
-        Points.x = x;
+        ClassicPoints.x = x;
     }
 
     public static int getX() {
@@ -47,8 +47,8 @@ public class Points {
         if (points > maxPoints) {
             maxPoints = points;
         }
-        if (maxPoints > StaticField.record) {
-            StaticField.record = maxPoints;
+        if (maxPoints > StaticField.recordClassic) {
+            StaticField.recordClassic = maxPoints;
             Save.save(MyApplication.getAppContext());
         }
     }

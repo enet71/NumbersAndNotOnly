@@ -22,11 +22,6 @@ public class NonStopField extends AbstractField implements NonStop {
     }
 
     @Override
-    public void addSquare() {
-
-    }
-
-    @Override
     public void removeSquare() {
 
     }

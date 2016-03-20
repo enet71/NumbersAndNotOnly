@@ -2,7 +2,7 @@ package almostgamecompany.square.classic;
 
 
 import almostgamecompany.numbersandnotonly.R;
-import almostgamecompany.other.Points;
+import almostgamecompany.point.ClassicPoints;
 import almostgamecompany.other.Position;
 import almostgamecompany.other.Sound;
 
@@ -14,7 +14,7 @@ public class SquareX extends ClassicAbstractSquare {
     @Override
     public void press() {
         Sound.playSound(R.raw.xsound);
-        Points.setX(Points.getX() + 1);
+        ClassicPoints.setX(ClassicPoints.getX() + 1);
     }
 
     @Override

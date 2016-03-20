@@ -7,7 +7,6 @@ import android.graphics.Point;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -25,13 +24,12 @@ import android.widget.TextView;
 import java.util.TimerTask;
 
 import almostgamecompany.field.Field;
-import almostgamecompany.field.classic.ClassicField;
 import almostgamecompany.field.nonStop.NonStopField;
 import almostgamecompany.main.Save;
 import almostgamecompany.main.StaticField;
 import almostgamecompany.numbersandnotonly.R;
 import almostgamecompany.other.MyTimer;
-import almostgamecompany.other.Points;
+import almostgamecompany.point.ClassicPoints;
 
 public class FormGame extends Activity {
 
@@ -289,17 +287,17 @@ public class FormGame extends Activity {
                     @Override
                     public void run() {
 
-                        labelX.setText(Points.getX() + " ");
+                        labelX.setText(ClassicPoints.getX() + " ");
 
-                        score.setText(String.valueOf(Points.getPoints()));
-                        if (Points.getPoints()>=Points.getMaxPoints()){
-                            bestScore.setText("\n" +"Best Score: " + StaticField.record + "\n" + "\n" + "In This Game: " + "BEST!" + "\n"+ "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo()+1)+"%"+ "\n");
-                            if (Points.getPoints()>=StaticField.record){
+                        score.setText(String.valueOf(ClassicPoints.get()));
+                        if (ClassicPoints.get() >= ClassicPoints.getMaxPoints()) {
+                            bestScore.setText("\n" + "Best Score: " + StaticField.recordClassic + "\n" + "\n" + "In This Game: " + "BEST!" + "\n" + "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo() + 1) + "%" + "\n");
+                            if (ClassicPoints.get() >= StaticField.recordClassic) {
                                 bestScore.setText("\n" +"Best Score: " + "BEST!" + "\n" + "\n" + "In This Game: " + "BEST!" + "\n"+ "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo()+1)+"%"+ "\n");
                             }
                         }else
                         {
-                            bestScore.setText("\n" + "Best Score: " + StaticField.record + "\n" + "\n" + "In This Game: " + String.valueOf(Points.getMaxPoints()) + "\n" + "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo() + 1) + "%" + "\n");
+                            bestScore.setText("\n" + "Best Score: " + StaticField.recordClassic + "\n" + "\n" + "In This Game: " + String.valueOf(ClassicPoints.getMaxPoints()) + "\n" + "\n" + "Speed: " + String.valueOf(StaticField.getSpeedInfo() + 1) + "%" + "\n");
                         }
                         for (int i = 0; i < size; i++) {
                             for (int j = 0; j < size; j++) {
